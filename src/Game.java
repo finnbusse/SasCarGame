@@ -17,6 +17,7 @@ public class Game {
         window = new View(1000,700);
         auto = new Auto(50,300);
 
+        startGame();
 
     }
 
@@ -25,11 +26,11 @@ public class Game {
             window.wait(1);
 
             if (window.keyUpPressed()) {
-                auto.setY(auto.getY - 1);
+                auto.setY(auto.getY() - 1);
             }
 
             if (window.keyDownPressed()) {
-                auto.setY(auto.getY + 1);
+                auto.setY(auto.getY() + 1);
             }
         }
     }
