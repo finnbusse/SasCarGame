@@ -33,23 +33,19 @@ public class Game {
             window.wait(1);
 
             if (window.keyUpPressed()) {
-                //auto.setY(auto.getY() - 1);
-                for (int i = 0; i<6; i++) {
-                    hindernisse[i].move(-10, 0);
-                }
+                auto.setY(auto.getY() - 1);
+
             }
 
             if (window.keyDownPressed()) {
-                //auto.setY(auto.getY() + 1);
+                auto.setY(auto.getY() + 1);
 
-                for (int i = 0; i<6; i++) {
-                    hindernisse[i].move(10, 0);
-                }
+
             }
 
-            //for (int i = 0; i<6; i++) {
-              //  hindernisse[i].moveX(i);
-            //}
+            for (int i = 0; i<5; i++) {
+                hindernisse[i].move(-1,0);
+            }
         }
     }
 }

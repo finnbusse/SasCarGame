@@ -13,12 +13,13 @@ public class Obstacle {
 
     }
 
-    public void move(double x, double y) {
-        this.pX = x;
-        this.pY = y;
+    public void move(double pX, double pY) {
+        this.x = pX;
+        this.y = pY;
 
 
-        this.block.moveTo(this.pX + this.getX(), this.pY + this.getY());
+        //this.block.moveTo(this.pX + this.getX(), this.pY + this.getY());
+        this.block.move(pX, pY);
 
 
 
