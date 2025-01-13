@@ -26,6 +26,11 @@ public class Obstacle {
 
     }
 
+    public void setX(double pX) {
+        this.x = pX;
+        this.block.moveTo(this.x, this.y);
+    }
+
     public double getX() {
         return this.x;
     }

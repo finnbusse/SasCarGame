@@ -43,9 +43,15 @@ public class Game {
 
             }
 
-            for (int i = 0; i<5; i++) {
+            for (int i = 0; i<6; i++) {
                 hindernisse[i].move(-1,0);
+
+                if (hindernisse[i].getX < 0) {
+                    hindernisse[i].setX(1000);
+                }
             }
+
+
         }
     }
 }
