@@ -5,7 +5,7 @@ import java.awt.Color;
 public class Obstacle {
 
 
-    private Rectangle block;
+    private Tree block;
 
 
     private double x;
@@ -17,7 +17,7 @@ public class Obstacle {
     public Obstacle(double pX, double pY) {
         x = pX;
         y = pY;
-        block = new Rectangle(pX, pY, 100, 100, Color.RED);
+
     }
 
 
@@ -30,13 +30,13 @@ public class Obstacle {
 
     public void setX(double pX) {
         x = pX;
-        block.moveTo(x, y);
+        block.move(x, y);
     }
 
 
     public void setY(double pY) {
         y = pY;
-        block.moveTo(x, y);
+        block.move(x, y);
     }
 
 
