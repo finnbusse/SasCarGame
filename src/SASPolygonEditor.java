@@ -1,4 +1,4 @@
-import sas.*; // Import der GLOOP-Bibliothek
+import sas.*;
 import java.awt.Color; 
 // import java.*;// Import der Klasse Color, um einfacher auf die Farben zuzugreifen.
 

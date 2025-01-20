@@ -429,17 +429,17 @@ class Tree {
 
 
     public void setX(double pX) {
-        initX = pX;
-        move(initX, 0);
-
+        double deltaX = pX - initX; // Differenz zwischen neuer und aktueller X-Position
+        move(deltaX, 0);           // Polygone entsprechend verschieben
+        initX = pX;                // Neue X-Position setzen
     }
-
 
     public void setY(double pY) {
-        initY = pY;
-        move(initY, 0);
-
+        double deltaY = pY - initY; // Differenz zwischen neuer und aktueller Y-Position
+        move(0, deltaY);           // Polygone entsprechend verschieben
+        initY = pY;                // Neue Y-Position setzen
     }
+
 
 
     public double getX() {
