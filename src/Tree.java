@@ -4,7 +4,7 @@ import java.awt.Color;
 
 class Tree {
     private Polygon polygon1, polygon2, polygon3, polygon4, polygon5, polygon6, polygon7, polygon8, polygon9, polygon10, polygon11, polygon12, polygon13, polygon14, polygon15, polygon16, polygon17, polygon18, polygon19, polygon20;
-    private double initX, initY, x, y;
+    private double initX, initY, x, y, width, height;
 
     Tree(double pX, double pY) {
         // super(pX,pY,pPunkte);   
@@ -446,8 +446,15 @@ class Tree {
         return initX;
     }
 
-
     public double getY() {
         return initY;
     }
+
+    public double getWidth() {
+        return width = 167;
+    };
+
+    public double getHeight() {
+        return height = 414;
+    };
 }

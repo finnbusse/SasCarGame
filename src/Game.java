@@ -3,65 +3,60 @@ import sas.*;
 public class Game {
 
     View window;
-    Auto auto;
-    Tree[] trees;
+    private Auto auto;
+    private Tree[] trees;
 
     boolean gameOver;
-
 
     public static void main(String[] args) {
         new Game();
     }
 
     public Game() {
-
         window = new View(1000, 700);
         auto = new Auto(50, 300);
 
+        // Nur ein Baum pro x-Position
         trees = new Tree[100];
 
-        for (int i = 0; i < 100; i++) {
-            trees[i] = new Tree(400 + i * 500, Tools.randomNumber(0, 500));
+        for (int i = 0; i < trees.length; i++) {
+            double x = 600 + i * 1000;  // Verteile die Bäume entlang der X-Achse
+            double y = Tools.randomNumber(0, 500);  // Zufällige Y-Position
+            trees[i] = new Tree(x, y);
         }
 
         startGame();
-
     }
 
     public void startGame() {
-        while (gameOver == !true) {
+        while (!gameOver) {
             window.wait(1);
-            System.out.println(trees[1].getX());
 
             if (window.keyUpPressed()) {
                 auto.setY(auto.getY() - 1);
-
             }
 
             if (window.keyDownPressed()) {
                 auto.setY(auto.getY() + 1);
-
-
             }
 
-            for (int i = 0; i < 100; i++) {
-                trees[i].move(-0.5, 0);
+            for (Tree tree : trees) {
+                tree.move(-0.5, 0);
 
-                if (trees[i].getX() < -167) {
-                    trees[i].setX(1000);
+                // Baum zurücksetzen, wenn er aus dem Sichtfeld ist
+                if (tree.getX() < -167) {
+                    tree.setX(-1000);
+                    tree.setY(Tools.randomNumber(0, 500)); // Neue zufällige Y-Position
                 }
 
-                if (auto.getX() < trees[i].getX() + 167 &&  // Prüfe, ob das Auto im rechten Bereich des Hindernisses ist
-                        auto.getX() + auto.getWidth() > trees[i].getX() &&  // Prüfe, ob das Auto im linken Bereich des Hindernisses ist
-                        auto.getY() < trees[i].getY() + 414 &&  // Prüfe, ob das Auto im unteren Bereich des Hindernisses ist
-                        auto.getY() + auto.getHeight() > trees[i].getY()) {  // Prüfe, ob das Auto im oberen Bereich des Hindernisses ist
+                // Kollisionserkennung
+                if (auto.getX() < tree.getX() + 167 &&  // Rechter Bereich des Hindernisses
+                        auto.getX() + auto.getWidth() > tree.getX() &&  // Linker Bereich des Hindernisses
+                        auto.getY() < tree.getY() + 414 &&  // Unterer Bereich des Hindernisses
+                        auto.getY() + auto.getHeight() > tree.getY()) {  // Oberer Bereich des Hindernisses
                     gameOver = true;
                 }
-
-
             }
-
-
         }
     }
 }
